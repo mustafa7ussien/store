@@ -86,7 +86,10 @@ php artisan make:migration create_names_table
 ```bash
 php artisan make:model Name -mcr
 ```
-
+## Move file storage to public
+```bash
+php artisan storage:link
+```
 
 
 
