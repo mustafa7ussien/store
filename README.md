@@ -16,6 +16,8 @@
 =>Auth breeze package
 =>CRUD 
 =>FilleSysytem & Upload img
+=>Request Validation
+=>custom request validation
 ...update soon
 
 ## Installation
@@ -99,6 +101,14 @@ php artisan make:model Name -mcr
 ## Move file storage to public
 ```bash
 php artisan storage:link
+```
+## Custom Request validation
+```bash
+php artisan make:request CategoryRequest
+```
+## Filter for forbiden any keyword
+```bash
+php artisan make:rule Filter
 ```
 
 

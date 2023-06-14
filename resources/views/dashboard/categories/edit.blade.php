@@ -9,6 +9,18 @@
 
 @section('content')
 <form action="{{route('categories.update',$category->id)}}" method="post" enctype="multipart/form-data">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <h3>ERROR Occured</h3>
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+            
+        </ul>
+    </div>
+        
+    @endif
 @csrf
 @method('put')
 <div class="form-groub">
