@@ -26,7 +26,7 @@ composer i
 npm i
 ```
 ```bash
-create database name Cafeteria as type of utf8mb4_unicode_ci
+create database name Store as type of utf8mb4_unicode_ci
 ```
 ```bash
 npm run dev
