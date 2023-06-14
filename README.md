@@ -8,6 +8,15 @@
 </p>
 # Simply Store System Using Laravel
 
+# Topics
+=>view & layouts
+=>Database & migration
+=>Seeder ex) User::factory(20)->create(); 
+=>Auth breeze package
+=>CRUD 
+=>FilleSysytem & Upload img
+...update soon
+
 ## Installation
 1- Download or Clone the project
 2-check file ".env" there is in the project and set name of database
@@ -90,6 +99,7 @@ php artisan make:model Name -mcr
 ```bash
 php artisan storage:link
 ```
+
 
 
 
