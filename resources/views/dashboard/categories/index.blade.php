@@ -16,6 +16,15 @@
 </div>
     
 @endif
+<form action="{{URL::current()}}" method="get" class="d-flex justify-content-between mb-4">
+<input type="text" name="name" placeholder="name" class="form-control" :value="request('name')" >
+<select name="status" class="form-control" >
+    <option value="">All</option>
+    <option value="active" @selected(request('status')=='active')>Active</option>
+    <option value="archived" @selected(request('status')=='archived')>Archived</option>
+</select>
+<button class="btn btn-succes">Filter</button>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -23,6 +32,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Parent</th>
+            <th>Status</th>
             <th>Created At</th>
             <th colspan="2">Action</th>
         </tr>
@@ -38,6 +48,7 @@
             <td>{{$category->id}}</td>
             <td>{{$category->name}}</td>
             <td>{{$category->parent_id}}</td>
+            <td>{{$category->status}}</td>
             <td>{{$category->created_at}}</td>
             <td><a href="{{route('categories.edit',$category->id)}}" class="btn btn-sm btn-success">Edit</a></td>
             <td>
