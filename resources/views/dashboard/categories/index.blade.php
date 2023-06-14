@@ -69,6 +69,6 @@
         
     </tbody>
 </table>
-{{$categories->links()}}
+{{$categories->withQueryString()->links()}}
     
 @endsection
