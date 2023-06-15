@@ -123,6 +123,19 @@ php artisan make:migration add_softDelete_to_categories_table
 6=> make three route to trash and restore and force-delete
 7=>make three fun and views to it 
 
+# Factory : tofilling up  data in db randomly
+store,category,product
 
-
+```bash
+php artisan make:factory storeFactory
+```
+```bash
+php artisan make:factory categoryFactory
+```
+=>parsing in table columns that make factory to it 
+=>then call factory in db seeder
+=> to use this factory use command
+```bash
+php artisan db:seed
+```
 
