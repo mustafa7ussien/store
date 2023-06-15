@@ -14,15 +14,17 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $user=Auth::user();
-        if($user->store_id)
-        {
-           $products= Product::where('store_id','=',$user->store_id)->paginate();
-        }
-        else
-        {
+        // $user=Auth::user();
+        // if($user->store_id)
+        // {
+        //     //show product that only have the user
+        //    $products= Product::where('store_id','=',$user->store_id)->paginate();
+        // }
+        // else
+        // {
+        // $products=Product::paginate();
+        // }
         $products=Product::paginate();
-        }
         return view('dashboard.products.index',compact('products'));
     }
 
@@ -55,7 +57,16 @@ class ProductsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user=Auth::user();
+        if($user->store_id)
+        {
+            //show product that only have the user
+           $product= Product::where('store_id','=',$user->store_id)->findOrFail($id);
+        }
+        else
+        {
+        $product=Product::findOrFail($id);
+        }
     }
 
     /**
