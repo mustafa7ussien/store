@@ -126,11 +126,32 @@ class CategoriesController extends Controller
     {
         $category=Category::find($id);
         $category->delete();
-        if($category->image)
-        {
-            Storage::disk('public')->delete($category->image);
-        }
+        // if($category->image)
+        // {
+        //     Storage::disk('public')->delete($category->image);
+        // }
 
         return Redirect::route('categories.index')->with('success','Category Delete');
+    }
+
+
+    public function trash()
+    {
+        $categories=Category::onlyTrashed()->paginate();
+        return view("dashboard.categories.trash",compact('categories'));
+    }
+    public function restore(Request $request ,$id)
+    {
+        $category=Category::onlyTrashed()->findOrFail($id);
+        $category->restore();
+        return redirect()->route('categories.trash');
+
+    }
+    public function forceDelete($id)
+    {
+        $category=Category::onlyTrashed()->findOrFail($id);
+        $category->forceDelete();
+        return redirect()->route('categories.index');
+
     }
 }

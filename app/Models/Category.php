@@ -5,11 +5,12 @@ namespace App\Models;
 use App\Rules\Filter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Validation\Rule;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
     protected $fillable =
     [
         "name", "parent_id", "description", "image", "status", "slug"

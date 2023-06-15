@@ -110,6 +110,18 @@ php artisan make:request CategoryRequest
 ```bash
 php artisan make:rule Filter
 ```
+## Soft Delete "delete from app not db "
+1=>make migration file for soft delete
+
+```bash
+php artisan make:migration add_softDelete_to_categories_table
+```
+2=>add time stamp =>$table->softDeletes();
+3=> in model use trait contain some method use soft delete=>softDeletes
+4=>withTrashed() =>return all data delete or not
+5=>onlyTrashed() => return data deleted
+6=> make three route to trash and restore and force-delete
+7=>make three fun and views to it 
 
 
 
