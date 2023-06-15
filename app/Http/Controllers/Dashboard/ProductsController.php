@@ -57,16 +57,7 @@ class ProductsController extends Controller
      */
     public function edit(string $id)
     {
-        $user=Auth::user();
-        if($user->store_id)
-        {
-            //show product that only have the user
-           $product= Product::where('store_id','=',$user->store_id)->findOrFail($id);
-        }
-        else
-        {
-        $product=Product::findOrFail($id);
-        }
+        
     }
 
     /**
