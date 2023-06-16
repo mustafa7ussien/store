@@ -33,6 +33,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Parent</th>
+            <th>Products counts</th>
             <th>Status</th>
             <th>Created At</th>
             <th colspan="2">Action</th>
@@ -47,8 +48,9 @@
         <tr>
             <td><img src="{{asset('storage/'.$category->image)}}" alt="" height="50" ></td>
             <td>{{$category->id}}</td>
-            <td>{{$category->name}}</td>
-            <td>{{$category->parent_name}}</td>
+            <td> <a href="{{route('categories.show',$category->id)}}">{{$category->name}}</a></td>
+            <td>{{$category->parent?$category->parent->name:"---" }}</td>
+            <td>{{$category->products_count}}</td>
             <td>{{$category->status}}</td>
             <td>{{$category->created_at}}</td>
             <td><a href="{{route('categories.edit',$category->id)}}" class="btn btn-sm btn-success">Edit</a></td>

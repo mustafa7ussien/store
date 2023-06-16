@@ -19,6 +19,18 @@ class Category extends Model
     {
         return $this->hasMany(Product::class,'category_id','id');
     }
+     //relation between categories and it self  to parent 
+    public function parent()
+    {
+        return $this->belongsTo(Category::class,'parent_id','id')->withDefault(
+            [
+                'name'=>'--'
+            ]);
+    }
+    public function childerns()
+    {
+        return $this->hasMany(Category::class,'parent_id','id');
+    }
 
     public static function rules($id = 0)
     {

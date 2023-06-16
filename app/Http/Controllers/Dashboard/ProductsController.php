@@ -24,7 +24,12 @@ class ProductsController extends Controller
         // {
         // $products=Product::paginate();
         // }
-        $products=Product::paginate();
+
+        // $products=Product::paginate();
+        //this code will reduce query database in 3 query only
+        //igial looading that i use when use loop
+        $products=Product::with(['category','store'])->paginate();
+
         return view('dashboard.products.index',compact('products'));
     }
 
