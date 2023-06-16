@@ -138,4 +138,9 @@ php artisan make:factory categoryFactory
 ```bash
 php artisan db:seed
 ```
+# Relation one to many between category and product
+1=>in model of category make function   that
+return $this->hasMany(Product::class,'category_id','id');
+2=> in model product make function that 
+return $this->belongsTo(Category::class,'category_id','id');
 

@@ -15,6 +15,10 @@ class Category extends Model
     [
         "name", "parent_id", "description", "image", "status", "slug"
     ];
+    public function products()
+    {
+        return $this->hasMany(Product::class,'category_id','id');
+    }
 
     public static function rules($id = 0)
     {
