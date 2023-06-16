@@ -20,8 +20,12 @@
     </thead>
     <tbody>
         {{-- @if ($products->count()) --}}
+        @php
+        $products=$category->products()->with('store')->paginate(5);
+            
+        @endphp
              
-        @forelse ($category->products as $product)
+        @forelse ($products as $product)
             
        
         <tr>
@@ -40,4 +44,6 @@
         
     </tbody>
 </table>
+{{$products->links()}}
+
 @endsection
